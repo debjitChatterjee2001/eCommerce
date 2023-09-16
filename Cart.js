@@ -16,8 +16,40 @@ function Cart() {
     setCartItems(updatedCart);
   };
 
+  const increaseQuantity = (productId) => {
+    // Increase the quantity of a product in the cart
+    const updatedCart = cartItems.map((item) => {
+      if (item.id === productId) {
+        return {
+          ...item,
+          quantity: item.quantity + 1,
+        };
+      }
+      return item;
+    });
+    setCartItems(updatedCart);
+  };
+
+  const decreaseQuantity = (productId) => {
+    // Decrease the quantity of a product in the cart
+    const updatedCart = cartItems.map((item) => {
+      if (item.id === productId && item.quantity > 1) {
+        return {
+          ...item,
+          quantity: item.quantity - 1,
+        };
+      }
+      return item;
+    });
+    setCartItems(updatedCart);
+  };
+
   // Calculate the total cart price
-  const totalCartPrice = cart.reduce((total, item) => total + item.price, 0);
+  const totalCartPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+
+  const checkout = () => {
+    // Your checkout logic here
+  };
 
   return (
     <div className="cart-container">
@@ -34,6 +66,21 @@ function Cart() {
                 <div className="cart-card-details">
                   <h3>{item.title}</h3>
                   <p>${item.price}</p>
+                  <div className="quantity-control">
+                    <button
+                      className="quantity-button"
+                      onClick={() => decreaseQuantity(item.id)}
+                    >
+                      -
+                    </button>
+                    <span className="quantity">{item.quantity}</span>
+                    <button
+                      className="quantity-button"
+                      onClick={() => increaseQuantity(item.id)}
+                    >
+                      +
+                    </button>
+                  </div>
                   <button
                     className="remove-from-cart-button"
                     onClick={() => removeFromCart(item.id)}
@@ -53,7 +100,9 @@ function Cart() {
             <p>Total Cart Price:</p>
             <h2>${totalCartPrice.toFixed(2)}</h2>
           </div>
-          <button className="checkout-button"><Link to="/checkout">Checkout</Link></button>
+          <button className="checkout-button">
+            <Link to="/checkout">Checkout</Link>
+          </button>
         </div>
       )}
     </div>

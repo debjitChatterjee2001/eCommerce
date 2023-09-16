@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from './Navbar';
+import '../stylesheet/Checkout.css'
 
 function Checkout({ cart }) {
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');
