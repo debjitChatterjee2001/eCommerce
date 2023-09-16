@@ -1,0 +1,135 @@
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px; /* Reduce the gap between product cards */
+}
+
+.product-card {
+  flex: 0 0 calc(25% - 10px); /* Adjust card width as needed, here set to 25% for 4 cards in a row */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-image {
+  max-width: 100%;
+  height: auto; /* Reduce image height */
+  max-height: 150px; /* Limit maximum image height */
+  cursor: pointer;
+}
+
+
+.product-name {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.product-description {
+  flex-grow: 1;
+  overflow: hidden; /* Hide overflow text */
+  text-overflow: ellipsis; /* Add ellipsis for long descriptions */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.more-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  align-self: flex-end;
+}
+
+.more-button:hover {
+  background-color: #0056b3;
+}
+
+.product-price {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.add-to-cart-button {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  align-self: flex-end;
+  margin-top: 10px;
+}
+
+.add-to-cart-button:hover {
+  background-color: #1e7e34;
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: #333; /* Background color */
+  color: #fff; /* Text color */
+  padding: 10px; /* Spacing inside the navbar */
+  display: flex; /* Make child elements inline */
+  justify-content: space-between; /* Space between logo and links */
+  align-items: center; /* Vertical alignment of items */
+}
+
+/* Navbar logo */
+.navbar-logo {
+  font-size: 24px; /* Font size */
+  text-decoration: none; /* Remove underlines from links */
+  color: #fff; /* Text color */
+  font-weight: bold; /* Bold text */
+}
+
+/* Navbar links */
+.navbar-links {
+  list-style-type: none; /* Remove list bullet points */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  display: flex; /* Make child elements inline */
+}
+
+/* Individual navbar link */
+.navbar-link {
+  margin-right: 20px; /* Spacing between links */
+  font-size: 18px; /* Font size */
+  text-decoration: none; /* Remove underlines from links */
+  color: #fff; /* Text color */
+  transition: color 0.3s; /* Smooth color transition on hover */
+}
+
+/* Change link color on hover */
+.navbar-link:hover {
+  color: #f0f0f0; /* Text color on hover */
+}
+
+/* Add a button-like style to the "Cart" link */
+.navbar-cart {
+  background-color: #f0f0f0; /* Background color */
+  color: #333; /* Text color */
+  padding: 10px 20px; /* Spacing inside the link */
+  border: none; /* Remove borders */
+  border-radius: 5px; /* Rounded corners */
+  text-decoration: none; /* Remove underlines from links */
+  font-weight: bold; /* Bold text */
+  cursor: pointer; /* Show a pointer cursor on hover */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition on hover */
+}
+
+/* Change button color on hover */
+.navbar-cart:hover {
+  background-color: #333; /* Background color on hover */
+  color: #fff; /* Text color on hover */
+}

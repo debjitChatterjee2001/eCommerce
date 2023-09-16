@@ -1,0 +1,69 @@
+/* Cart.css */
+
+/* Style for the cart container */
+.cart-container {
+  text-align: center;
+}
+
+/* Style for the cart items */
+.cart-items {
+  margin-top: 20px;
+}
+
+/* Style for the cart card container */
+.cart-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adjust the gap between cart items */
+  justify-content: space-between; /* Distribute items evenly */
+}
+
+/* Style for each compact cart item card */
+.cart-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  width: calc(25% - 20px); /* Set 25% width for each item with gap */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  text-align: center; /* Center-align content */
+}
+
+/* Style for the compact cart item image */
+.cart-card-image {
+  max-width: 80%; /* Adjust the image size */
+  height: auto;
+  display: block; /* Center-align the image horizontally */
+  margin: 0 auto;
+}
+
+/* Style for the compact cart item details */
+.cart-card-details {
+  text-align: left;
+  margin-top: 10px;
+}
+
+/* Style for the remove from cart button */
+.remove-from-cart-button {
+  background-color: #ff6347;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 10px; /* Adjust the margin to align the button */
+}
+
+.checkout-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.remove-from-cart-button:hover {
+  background-color: #ff4524;
+}

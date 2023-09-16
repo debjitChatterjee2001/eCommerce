@@ -1,0 +1,69 @@
+/* Styling for the login container */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+/* Styling for the login form */
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"],
+input[type="password"] {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Styling for the "Forgot Password" and "Reset Password" buttons */
+button.forgot-password-button {
+  background-color: transparent;
+  color: #007bff;
+  text-decoration: underline;
+  border: none;
+  padding: 0;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+/* Styling for the success message */
+p.success-message {
+  color: #0a8e11;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Styling for the register link */
+p.register-link {
+  margin-top: 20px;
+  text-align: center; /* Center-align the register link */
+}
