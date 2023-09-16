@@ -49,6 +49,7 @@ function Cart() {
 
   const checkout = () => {
     // Your checkout logic here
+    setCartItems([]);
   };
 
   return (
@@ -100,7 +101,7 @@ function Cart() {
             <p>Total Cart Price:</p>
             <h2>${totalCartPrice.toFixed(2)}</h2>
           </div>
-          <button className="checkout-button">
+          <button className="checkout-button" onClick={checkout}>
             <Link to="/checkout">Checkout</Link>
           </button>
         </div>
