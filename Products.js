@@ -1,11 +1,11 @@
 // Product.js
 import React, { useState, useEffect } from 'react';
-import { useRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil'; // Update the import
 import { cartState } from './cartState'; // Import the cart state atom
+import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import axios from 'axios';
 import '../stylesheet/Product.css';
-import { useNavigate } from 'react-router-dom';
 
 function ProductList() {
   const [cart, setCart] = useRecoilState(cartState); // Use Recoil to get and update cart state
@@ -41,16 +41,32 @@ function ProductList() {
   };
 
   const addToCart = (product) => {
-    // Add the selected product to the cart
-    setCart((prevCart) => [...prevCart, product]);
-    console.log(cart);
+    // Clone the entire cart
+    const updatedCart = [...cart];
+  
+    // Check if the product is already in the cart
+    const productIndex = updatedCart.findIndex((item) => item.id === product.id);
+  
+    if (productIndex !== -1) {
+      // If the product is already in the cart, increase its quantity
+      updatedCart[productIndex] = {
+        ...updatedCart[productIndex],
+        quantity: updatedCart[productIndex].quantity + 1,
+      };
+    } else {
+      // If the product is not in the cart, add it with a quantity of 1
+      updatedCart.push({ ...product, quantity: 1 });
+    }
+  
+    // Set the updated cart as the new state
+    setCart(updatedCart);
   };
 
   const handleClick = (productID) => {
     console.log("Clicked on the product with ID:>>", productID);
     navigate(`/product/${productID}`);
   }
-
+  
 
   return (
     <div>
