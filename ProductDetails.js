@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useRecoilState } from 'recoil';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import '../stylesheet/ProductDetails.css';
+import { cartState } from './cartState'; 
 import Navbar from './Navbar';
 
 function ProductDetails() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [cart, setCart] = useRecoilState(cartState);
 
   useEffect(() => {
     setLoading(true);
@@ -33,19 +36,41 @@ function ProductDetails() {
     return <p>No product found with ID: {id}</p>;
   }
 
+  const addToCart = (product) => {
+    // Clone the entire cart
+    const updatedCart = [...cart];
+  
+    // Check if the product is already in the cart
+    const productIndex = updatedCart.findIndex((item) => item.id === product.id);
+  
+    if (productIndex !== -1) {
+      // If the product is already in the cart, increase its quantity
+      updatedCart[productIndex] = {
+        ...updatedCart[productIndex],
+        quantity: updatedCart[productIndex].quantity + 1,
+      };
+    } else {
+      // If the product is not in the cart, add it with a quantity of 1
+      updatedCart.push({ ...product, quantity: 1 });
+    }
+  
+    // Set the updated cart as the new state
+    setCart(updatedCart);
+  };
+
   return (
-    <div className="product-details">
+    <div>
       <Navbar />
-      <h1>Product Details</h1>
       <div className="product-details-container">
         <div className="product-image-container">
           <img src={product.image} alt={product.title} className="product-image" />
         </div>
         <div className="product-info-container">
-          <h2 className="product-name">{product.title}</h2>
-          <p className="product-description">{product.description}</p>
+          <h1 className="product-name">{product.title}</h1>
           <p className="product-price">${product.price}</p>
-          <button className="add-to-cart-button">Add to Cart</button>
+          <p className="product-description">{product.description}</p>
+          <button className="add-to-cart-button" onClick={() => addToCart(product)}>Add to Cart</button>
+          <button className="buy-now-button">Buy Now</button>
         </div>
       </div>
     </div>

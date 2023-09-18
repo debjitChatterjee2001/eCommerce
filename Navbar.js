@@ -1,11 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// Import Font Awesome CSS
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 function Navbar() {
   return (
     <nav className="navbar">
       <Link to="/home" className="navbar-logo">
-        YourLogo
+        ShopperStop
       </Link>
       <ul className="navbar-links">
         <li>
@@ -25,7 +28,7 @@ function Navbar() {
         </li>
       </ul>
       <Link to="/cart" className="navbar-cart">
-        Cart
+        <i className="fas fa-shopping-cart"></i>
       </Link>
     </nav>
   );
