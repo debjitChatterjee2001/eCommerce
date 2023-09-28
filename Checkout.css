@@ -1,0 +1,81 @@
+.checkout {
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 20px;
+}
+
+/* Shipping address section */
+
+.shipping-address {
+  margin-bottom: 20px;
+}
+
+.shipping-address h3 {
+  margin-top: 0;
+}
+
+.shipping-address input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Payment method section */
+
+.payment-method {
+  margin-bottom: 20px;
+}
+
+.payment-method h3 {
+  margin-top: 0;
+}
+
+.payment-method select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Credit card information fields */
+
+.credit-card-info {
+  margin-top: 20px;
+}
+
+.credit-card-info input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Order summary section */
+
+.order-summary {
+  margin-bottom: 20px;
+}
+
+.order-summary table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.order-summary th,
+.order-summary td {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+/* Checkout button */
+
+.checkout_button {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
