@@ -1,5 +1,5 @@
 // Product.js
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useRecoilState } from 'recoil'; // Update the import
 import { cartState } from './cartState'; // Import the cart state atom
 import { useNavigate } from 'react-router-dom';
@@ -32,13 +32,6 @@ function ProductList() {
       });
   }, []);
 
-  const toggleDescription = (productId) => {
-    // Toggle the expanded state for a specific product
-    setExpanded((prevExpanded) => ({
-      ...prevExpanded,
-      [productId]: !prevExpanded[productId],
-    }));
-  };
 
   const addToCart = (product) => {
     // Clone the entire cart
@@ -78,7 +71,7 @@ function ProductList() {
             <img src={product.image} alt={product.title} className="product-image" onClick={() => handleClick(product.id)}/>
             <h2 className="product-name">{product.title}</h2>
             <p className="product-description">
-              ${product.description}
+              {product.description}
             </p>
             <p className="product-price">${product.price}</p>
             <button className="add-to-cart-button" onClick={() => addToCart(product)}>

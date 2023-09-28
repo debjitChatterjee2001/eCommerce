@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function PasswordResetForm({ onReset }) {
+function ForgetPasswordForm({ onReset }) {
   const [username, setUsername] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -15,7 +15,7 @@ function PasswordResetForm({ onReset }) {
     }
   }, [newPassword, confirmPassword]);
 
-  const handleReset = () => {
+  const handleForget = () => {
     if (passwordsMatch) {
       // Passwords match, reset the password
       onReset(newPassword);
@@ -24,7 +24,7 @@ function PasswordResetForm({ onReset }) {
 
   return (
     <div className="reset-password-form">
-      <h2>Reset Password</h2>
+      <h2>Forgot Password??</h2>
       <form>
         <input
           type="text"
@@ -45,12 +45,12 @@ function PasswordResetForm({ onReset }) {
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
         {!passwordsMatch && <p className="error-message">Passwords do not match</p>}
-        <button onClick={handleReset} disabled={!passwordsMatch}>
-          Reset Password
+        <button onClick={handleForget} disabled={!passwordsMatch}>
+          Forget Password
         </button>
       </form>
     </div>
   );
 }
 
-export default PasswordResetForm;
+export default ForgetPasswordForm;

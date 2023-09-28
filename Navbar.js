@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 // Import Font Awesome CSS
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import '../stylesheet/Navbar.css'
 
 
 function Navbar() {
