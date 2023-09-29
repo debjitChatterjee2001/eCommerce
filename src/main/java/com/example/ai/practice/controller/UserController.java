@@ -32,9 +32,13 @@ public class UserController {
         return userRepository.findAll();
     }
 
-    @GetMapping("/login")
-    public void sendLoginOtp(){
-        Optional<User> user = userRepository.findByUsername("debjit_2001");
+    @PostMapping("/login")
+    public void sendLoginOtp(@RequestParam("username") String username, @RequestParam("password") String password){
+        //Find user by username and password
+        Optional<User> user = userRepository.findByUsernameAndPassword(username, password);
+        if(!user.isPresent()){
+            throw new RuntimeException("User not found");
+        }
         String otp=otpGeneratorService.generateOTP();
         twilioService.sendOTP(user.get().getPhoneNumber(),otp);
     }
